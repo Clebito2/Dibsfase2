@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Execução - Casa Dibs | Live Consultoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #00e800;
+            --color-background: #06192a;
+            --color-card: #0d2a45;
+            --color-text: #f0f8ff;
+            --color-text-muted: #a0aec0;
+            --font-body: 'Poppins', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+        }
+        body { 
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-attachment: fixed;
+            color: var(--color-text);
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+        .top-left-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .top-left-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 0 15px rgba(0, 232, 0, 0.5);
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .card {
+            background-color: var(--color-card);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: 2rem;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--color-text);
+        }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; text-align: center; margin-bottom: 3rem; }
+        h3 { font-size: 1.25rem; color: var(--color-primary); margin-bottom: 1rem; }
+        h4 { font-size: 1.1rem; margin: 0; }
+        p, li { line-height: 1.6; color: var(--color-text-muted); }
+
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .client-info {
+            background: rgba(0, 232, 0, 0.05);
+            border: 1px solid var(--color-primary);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .tabs {
+            display: flex;
+            background: var(--color-card);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tab-button {
+            flex: 1;
+            padding: 15px 10px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .tab-button.active {
+            background: var(--color-primary);
+            color: var(--color-background);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 232, 0, 0.3);
+        }
+        .tab-button:hover:not(.active) {
+            background: rgba(0, 232, 0, 0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        .card ul li::before {
+            content: '✓';
+            color: var(--color-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #000;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .footer img {
+            max-width: 200px;
+            margin-bottom: 2rem;
+        }
+        .footer p {
+            color: #777;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left-logo">
+        <img src="https://raw.githubusercontent.com/Clebito2/CasaDibs/main/Logo%20live%20oficial-21.png" alt="Live Consultoria">
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>Plano de Execução para <span style="color: var(--color-primary);">Casa Dibs</span></h1>
+            <div class="client-info">
+                <h3>Cliente: CASA DIBS LTDA</h3>
+                <p><strong>Consultor Responsável:</strong> Luiz Portal</p>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('diagnostico')">Diagnóstico</button>
+            <button class="tab-button" onclick="showTab('plano')">Plano Estratégico</button>
+            <button class="tab-button" onclick="showTab('execucao')">Execução - Fase 1</button>
+            <button class="tab-button" onclick="showTab('investimento')">Investimento</button>
+        </div>
+
+        <div id="diagnostico-tab" class="tab-content card active">
+            <h2>Diagnóstico Estratégico</h2>
+            <p style="font-family: var(--font-secondary); font-style: italic; font-size: 1.1rem; color: var(--color-text);">
+                "A Casa Dibs enfrenta desafios significativos após um período de expansão, resultando em desequilíbrios operacionais e financeiros. A estrutura atual carece de processos formalizados, clareza de papéis e governança corporativa. A operação está dividida em seis macroáreas de negócio sem uma projeção financeira clara, dificultando a análise de rentabilidade. O plano estratégico visa a estabilização e otimização da estrutura atual, com foco em reestruturação organizacional, planejamento financeiro e desenvolvimento de novos negócios."
+            </p>
+        </div>
+
+        <div id="plano-tab" class="tab-content">
+            <div class="card">
+                <h2>Plano Estratégico (Macro)</h2>
+                <h3>Fase 1: Reestruturação Organizacional e de Equipes</h3>
+                <p>Ajustar a estrutura humana para otimizar custos, clarear responsabilidades e preparar a equipe para o novo momento.</p>
+                <h3>Fase 2: Planejamento Estratégico e Financeiro</h3>
+                <p>Com a estrutura de custos redefinida, o foco se volta para a sustentabilidade e o planejamento do crescimento.</p>
+                <h3>Fase 3: Desenvolvimento de Novos Negócios e Otimização</h3>
+                <p>Criar novas fontes de receita e otimizar as operações existentes para aumentar o fluxo de clientes.</p>
+            </div>
+        </div>
+
+        <div id="execucao-tab" class="tab-content">
+            <div class="card">
+                <h2>Execução - Fase 1: Ações Imediatas</h2>
+                
+                <h3>Compras</h3>
+                <ul>
+                    <li>Estabelecer teto de compras em 62% da média de faturamento.</li>
+                    <li>Controle de saldo semanal a ser realizado por Jacqueline e compradores.</li>
+                    <li>Compras acima de R$ 3.000,00 devem ter a melhor data de vencimento consultada.</li>
+                </ul>
+
+                <h3>Recursos Humanos</h3>
+                <ul>
+                    <li>Desligamento imediato da Flávia e contratação da Amanda (em andamento).</li>
+                    <li>Desligamento da Lucélia a ser efetivado até 01 de Setembro.</li>
+                    <li>Desligamento do Darys em 01 de Setembro (rescisão de R$ 9.000,00).</li>
+                    <li>Abrir vaga para Gerente Júnior e estruturar a rotina da função.</li>
+                </ul>
+
+                <h3>Processos e Treinamento</h3>
+                <ul>
+                    <li>Definir que os responsáveis de cada área devem gerar as requisições de compras.</li>
+                    <li>Arthur ficará responsável por agrupar e centralizar as requisições.</li>
+                    <li>Marcar treinamento sobre o novo processo de requisição até 29 de Agosto.</li>
+                </ul>
+
+                <h3>Estratégia e Modelagem de Negócio</h3>
+                <ul>
+                    <li>Montar o Business Model Canvas (BMC) para cada área/projeto da Casa Dibs.</li>
+                    <li>Meta de desenvolvimento de 2 BMCs por semana (Ex: curso de churrasco, eventos).</li>
+                    <li>Iniciar o planejamento estratégico do zero, baseado em novas projeções financeiras.</li>
+                </ul>
+
+                <h3>Operações e Inventário</h3>
+                <ul>
+                    <li>Realizar o inventário completo de todos os bens da empresa.</li>
+                    <li>Executar a contagem total do estoque físico.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="investimento-tab" class="tab-content">
+            <div class="card">
+                <h2>Registro do Investimento</h2>
+                <div class="total-investment">
+                    <p>Valor Total do Projeto</p>
+                    <p class="total-value">R$ 88.000,00</p>
+                </div>
+                <div>
+                    <h3>Condições de Pagamento:</h3>
+                    <p>50% na assinatura do contrato e 50% na entrega final.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-34.png" alt="Logo Live Liderança & Vendas">
+            <p>Live Liderança & Vendas</p>
+            <p>Alta performance começa com atitude.</p>
+            <p style="margin-top: 1rem;">Luiz Portal - luizportal@ecossistemalive.com.br</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
