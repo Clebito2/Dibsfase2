@@ -57,7 +57,7 @@
         }
         h1 { font-size: 2.5rem; }
         h2 { font-size: 2rem; text-align: center; margin-bottom: 3rem; }
-        h3 { font-size: 1.25rem; color: var(--color-primary); margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; color: var(--color-primary); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 232, 0, 0.2); padding-bottom: 0.5rem;}
         h4 { font-size: 1.1rem; margin: 0; }
         p, li { line-height: 1.6; color: var(--color-text-muted); }
 
@@ -116,22 +116,32 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .card ul {
+        .task-list {
             list-style: none;
             padding-left: 0;
         }
-        .card ul li {
+        .task-item {
             padding-left: 1.5rem;
             position: relative;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
-        .card ul li::before {
-            content: '✓';
+        .task-item::before {
+            content: '▶';
             color: var(--color-primary);
             position: absolute;
             left: 0;
             font-weight: bold;
         }
+        .task-details {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            margin-top: 0.25rem;
+        }
+        .task-details span {
+            font-weight: 600;
+            color: #fff;
+        }
+
         .footer {
             background-color: #000;
             padding: 1rem 0;
@@ -160,13 +170,12 @@
         </header>
 
         <div class="tabs">
-            <button class="tab-button active" onclick="showTab('diagnostico')">Diagnóstico</button>
+            <button class="tab-button active" onclick="showTab('execucao')">Execução - Fase 1</button>
+            <button class="tab-button" onclick="showTab('diagnostico')">Diagnóstico</button>
             <button class="tab-button" onclick="showTab('plano')">Plano Estratégico</button>
-            <button class="tab-button" onclick="showTab('execucao')">Execução - Fase 1</button>
-            <button class="tab-button" onclick="showTab('investimento')">Investimento</button>
         </div>
 
-        <div id="diagnostico-tab" class="tab-content card active">
+        <div id="diagnostico-tab" class="tab-content card">
             <h2>Diagnóstico Estratégico</h2>
             <p style="font-family: var(--font-secondary); font-style: italic; font-size: 1.1rem; color: var(--color-text);">
                 "A Casa Dibs enfrenta desafios significativos após um período de expansão, resultando em desequilíbrios operacionais e financeiros. A estrutura atual carece de processos formalizados, clareza de papéis e governança corporativa. A operação está dividida em seis macroáreas de negócio sem uma projeção financeira clara, dificultando a análise de rentabilidade. O plano estratégico visa a estabilização e otimização da estrutura atual, com foco em reestruturação organizacional, planejamento financeiro e desenvolvimento de novos negócios."
@@ -185,59 +194,80 @@
             </div>
         </div>
 
-        <div id="execucao-tab" class="tab-content">
-            <div class="card">
-                <h2>Execução - Fase 1: Ações Imediatas</h2>
-                
-                <h3>Compras</h3>
-                <ul>
-                    <li>Estabelecer teto de compras em 62% da média de faturamento.</li>
-                    <li>Controle de saldo semanal a ser realizado por Jacqueline e compradores.</li>
-                    <li>Compras acima de R$ 3.000,00 devem ter a melhor data de vencimento consultada.</li>
-                </ul>
+        <div id="execucao-tab" class="tab-content card active">
+            <h2>Execução - Fase 1: Ações Imediatas</h2>
+            
+            <h3>Compras</h3>
+            <ul class="task-list">
+                <li class="task-item">
+                    Apresentar valores e controlar teto de compras (62% do faturamento).
+                    <div class="task-details"><span>Responsáveis:</span> Jacqueline (Controladoria), José Manuel (Compras) | <span>Prazo:</span> 03/09/2025</div>
+                </li>
+            </ul>
 
-                <h3>Recursos Humanos</h3>
-                <ul>
-                    <li>Desligamento imediato da Flávia e contratação da Amanda (em andamento).</li>
-                    <li>Desligamento da Lucélia a ser efetivado até 01 de Setembro.</li>
-                    <li>Desligamento do Darys em 01 de Setembro (rescisão de R$ 9.000,00).</li>
-                    <li>Abrir vaga para Gerente Júnior e estruturar a rotina da função.</li>
-                </ul>
+            <h3>Recursos Humanos</h3>
+            <ul class="task-list">
+                <li class="task-item">
+                    Desligamento da Flávia e contratação da Amanda.
+                    <div class="task-details"><span>Responsável:</span> João Chefe | <span>Prazo:</span> Em andamento</div>
+                </li>
+                <li class="task-item">
+                    Desligamento da Lucélia.
+                    <div class="task-details"><span>Responsáveis:</span> José Manuel, Luiz | <span>Prazo:</span> 01/09/2025</div>
+                </li>
+                <li class="task-item">
+                    Desligamento do Darys.
+                    <div class="task-details"><span>Responsável:</span> José Manuel | <span>Prazo:</span> 01/09/2025</div>
+                </li>
+                 <li class="task-item">
+                    Abrir vaga e estruturar rotina para Gerente Júnior.
+                    <div class="task-details"><span>Responsáveis:</span> Luiz, José Manuel | <span>Prazo:</span> 03/09/2025</div>
+                </li>
+            </ul>
 
-                <h3>Processos e Treinamento</h3>
-                <ul>
-                    <li>Definir que os responsáveis de cada área devem gerar as requisições de compras.</li>
-                    <li>Arthur ficará responsável por agrupar e centralizar as requisições.</li>
-                    <li>Marcar treinamento sobre o novo processo de requisição até 29 de Agosto.</li>
-                </ul>
+            <h3>Processos e Treinamento</h3>
+            <ul class="task-list">
+                <li class="task-item">
+                    Estruturar processo de requisições de compra por área.
+                    <div class="task-details"><span>Responsável:</span> Leonardo | <span>Prazo:</span> 03/09/2025</div>
+                </li>
+                <li class="task-item">
+                    Delegar a centralização das requisições para o Arthur.
+                    <div class="task-details"><span>Responsável:</span> Jacqueline | <span>Prazo:</span> 03/09/2025</div>
+                </li>
+                <li class="task-item">
+                    Marcar treinamento sobre o novo processo de requisição.
+                    <div class="task-details"><span>Responsáveis:</span> Leonardo, Artur | <span>Prazo:</span> 29/08/2025</div>
+                </li>
+                 <li class="task-item">
+                    Executar 5S nas duas unidades.
+                    <div class="task-details"><span>Responsável:</span> Leonardo | <span>Prazo:</span> A definir</div>
+                </li>
+            </ul>
+            
+            <h3>Estratégia e Modelagem de Negócio</h3>
+            <ul class="task-list">
+                <li class="task-item">
+                    Montar 2 Business Model Canvas (BMC) por semana.
+                    <div class="task-details"><span>Responsáveis:</span> Luiz, José Manuel, Leonardo | <span>Prazo:</span> 28/08/2025 (primeiros 2)</div>
+                </li>
+                <li class="task-item">
+                    Iniciar planejamento estratégico com novas projeções financeiras.
+                    <div class="task-details"><span>Responsáveis:</span> Jacqueline (Projeções), Luiz Portal (Estratégia) | <span>Prazo:</span> A definir</div>
+                </li>
+            </ul>
 
-                <h3>Estratégia e Modelagem de Negócio</h3>
-                <ul>
-                    <li>Montar o Business Model Canvas (BMC) para cada área/projeto da Casa Dibs.</li>
-                    <li>Meta de desenvolvimento de 2 BMCs por semana (Ex: curso de churrasco, eventos).</li>
-                    <li>Iniciar o planejamento estratégico do zero, baseado em novas projeções financeiras.</li>
-                </ul>
-
-                <h3>Operações e Inventário</h3>
-                <ul>
-                    <li>Realizar o inventário completo de todos os bens da empresa.</li>
-                    <li>Executar a contagem total do estoque físico.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="investimento-tab" class="tab-content">
-            <div class="card">
-                <h2>Registro do Investimento</h2>
-                <div class="total-investment">
-                    <p>Valor Total do Projeto</p>
-                    <p class="total-value">R$ 88.000,00</p>
-                </div>
-                <div>
-                    <h3>Condições de Pagamento:</h3>
-                    <p>50% na assinatura do contrato e 50% na entrega final.</p>
-                </div>
-            </div>
+            <h3>Operações, Manutenção e Inventário</h3>
+            <ul class="task-list">
+                 <li class="task-item">
+                    Levantar e apresentar plano de manutenções necessárias.
+                    <div class="task-details"><span>Responsável:</span> Leonardo | <span>Prazo:</span> 03/09/2025</div>
+                </li>
+                <li class="task-item">
+                    Realizar inventário completo de bens e contagem de estoque.
+                    <div class="task-details"><span>Responsável:</span> Leonardo (Organização) | <span>Prazo:</span> 30/09/2025</div>
+                </li>
+            </ul>
         </div>
 
     </div>
